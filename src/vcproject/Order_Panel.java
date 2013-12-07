@@ -52,8 +52,9 @@ public class Order_Panel extends JPanel {
 
 	public Order_Panel() {
 		super();
-		
 		initialize();
+		TempClient();
+		listners();
 	}
 
 	private void initialize() {
@@ -186,9 +187,6 @@ public class Order_Panel extends JPanel {
 		btnReturn = new JButton("Return");
 		btnReturn.setBounds(10, 519, 93, 35);
 		add(btnReturn);
-
-		TempClient();
-		listners();
 	}
 
 	private void oneTime() {

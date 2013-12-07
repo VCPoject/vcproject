@@ -5,8 +5,6 @@ import java.awt.SystemColor;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class Main_Panel extends JPanel {
 	/**
@@ -30,7 +28,7 @@ public class Main_Panel extends JPanel {
 
 	private void initialize() {
 		this.setSize(785, 575);
-		setBackground(SystemColor.activeCaption);
+		 setBackground(SystemColor.activeCaption);
 		
 		btnExit = new JButton("Exit");
 		btnExit.setBounds(10, 519, 93, 35);
