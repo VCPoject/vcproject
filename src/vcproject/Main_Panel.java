@@ -28,7 +28,7 @@ public class Main_Panel extends JPanel {
 
 	private void initialize() {
 		this.setSize(785, 575);
-		setBackground(SystemColor.activeCaption);
+		 setBackground(SystemColor.activeCaption);
 		
 		btnExit = new JButton("Exit");
 		btnExit.setBounds(10, 519, 93, 35);
