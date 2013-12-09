@@ -27,6 +27,7 @@ public class VCP_Main_Frame extends JFrame {
 
 
 
+
 	public VCP_Main_Frame() {
 		super();
 		initialize();
@@ -68,7 +69,7 @@ public class VCP_Main_Frame extends JFrame {
 		
 
 		getMainPanel().getBtnEmploeyLogin().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
 				setContentPane(getLogIn_Panel());
 			}
 
@@ -148,6 +149,7 @@ public class VCP_Main_Frame extends JFrame {
 	}
 
 
+
 	private Order_Panel getOrderPanel() {
 		if(orderPanel == null)
 		{
@@ -183,4 +185,5 @@ public class VCP_Main_Frame extends JFrame {
 		this.setFocusable(true);
 		this.setVisible(true);
 	}
+
 }
