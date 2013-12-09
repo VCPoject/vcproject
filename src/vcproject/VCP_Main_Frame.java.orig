@@ -69,7 +69,11 @@ public class VCP_Main_Frame extends JFrame {
 		
 
 		getMainPanel().getBtnEmploeyLogin().addActionListener(new ActionListener() {
+<<<<<<< HEAD
+			public void actionPerformed(ActionEvent arg0) {
+=======
 			public void actionPerformed(ActionEvent e) {
+>>>>>>> origin/gal1
 				setContentPane(getLogIn_Panel());
 			}
 
@@ -89,6 +93,7 @@ public class VCP_Main_Frame extends JFrame {
 				setContentPane(getMainPanel());
 			}
 		});
+<<<<<<< HEAD
 		
 		mainPanel.getBtnRegister().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -122,6 +127,8 @@ public class VCP_Main_Frame extends JFrame {
 
 
 
+=======
+>>>>>>> origin/gal1
 
 	}
 
@@ -142,12 +149,17 @@ public class VCP_Main_Frame extends JFrame {
 
 	public LogIn_Panel getLogIn_Panel() {
 		
+<<<<<<< HEAD
 		if(loginpanel==null)
 			loginpanel=new LogIn_Panel();
+=======
+		if(loginpanel==null){
+			loginpanel=new LogIn_Panel();
+		}
+>>>>>>> origin/gal1
 		
 		return loginpanel; 
 	}
-
 
 
 	private Order_Panel getOrderPanel() {
@@ -157,6 +169,7 @@ public class VCP_Main_Frame extends JFrame {
 		}
 		return orderPanel;
 	}
+<<<<<<< HEAD
 	
 	public Register_Panel getRegisterPanel() {
 		if(registerPanel == null)
@@ -185,5 +198,7 @@ public class VCP_Main_Frame extends JFrame {
 		this.setFocusable(true);
 		this.setVisible(true);
 	}
+=======
 
+>>>>>>> origin/gal1
 }
