@@ -54,7 +54,7 @@ public class VCP_Main_Frame extends JFrame {
 		
 
 		getMainPanel().getBtnEmploeyLogin().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
 				setContentPane(getLogIn_Panel());
 			}
 
@@ -94,8 +94,9 @@ public class VCP_Main_Frame extends JFrame {
 
 	public LogIn_Panel getLogIn_Panel() {
 		
-		if(loginpanel==null)
+		if(loginpanel==null){
 			loginpanel=new LogIn_Panel();
+		}
 		
 		return loginpanel; 
 	}

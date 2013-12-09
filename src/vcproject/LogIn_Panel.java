@@ -22,7 +22,7 @@ public class LogIn_Panel extends JPanel{
 	}
 	
 	private void initialize(){
-		
+		this.setSize(785, 575);
 		setBackground(Color.LIGHT_GRAY);
 		setLayout(null);
 		
@@ -56,9 +56,9 @@ public class LogIn_Panel extends JPanel{
 		add(textField_1);
 		textField_1.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Submmit");
-		btnNewButton.setBounds(247, 264, 103, 38);
-		add(btnNewButton);
+		//JButton btnNewButton = new JButton("Submmit");
+		//btnNewButton.setBounds(247, 264, 103, 38);
+		//add(btnNewButton);
 		
 		btnNewButton_1 = new JButton("Return");
 		btnNewButton_1.setBounds(10, 519, 93, 35);
