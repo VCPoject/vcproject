@@ -15,7 +15,11 @@ public class VCP_Main_Frame extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Main_Panel mainPanel;
+
+	private LogIn_Panel loginpanel;
+
 	private Order_Panel orderPanel;
+
 
 	public VCP_Main_Frame() {
 		super();
@@ -48,10 +52,21 @@ public class VCP_Main_Frame extends JFrame {
 			}
 		});
 		
+
+		getMainPanel().getBtnEmploeyLogin().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				setContentPane(getLogIn_Panel());
+			}
+
+		});
+	
+
 		getMainPanel().getBtnMakeOrder().addActionListener(new ActionListener() {/*Main Panel Make Order Button Listener*/
 			public void actionPerformed(ActionEvent e) {
 				setContentPane(getOrderPanel());
 			}
+
+			
 		});
 		
 		getOrderPanel().getBtnReturn().addActionListener(new ActionListener() {/*Order Return Button Listener*/
@@ -59,6 +74,7 @@ public class VCP_Main_Frame extends JFrame {
 				setContentPane(getMainPanel());
 			}
 		});
+
 	}
 
 	private void closeMainFrame() {
@@ -67,12 +83,24 @@ public class VCP_Main_Frame extends JFrame {
 	}
 
 	public Main_Panel getMainPanel() {
+		
 		if (mainPanel == null) {
 			mainPanel = new Main_Panel();
+			
 		}
 		return mainPanel;
 	}
 	
+
+	public LogIn_Panel getLogIn_Panel() {
+		
+		if(loginpanel==null)
+			loginpanel=new LogIn_Panel();
+		
+		return loginpanel; 
+	}
+
+
 	private Order_Panel getOrderPanel() {
 		if(orderPanel == null)
 		{
@@ -80,4 +108,5 @@ public class VCP_Main_Frame extends JFrame {
 		}
 		return orderPanel;
 	}
+
 }
