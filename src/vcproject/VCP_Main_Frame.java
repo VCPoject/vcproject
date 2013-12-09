@@ -2,9 +2,12 @@ package vcproject;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
-import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,6 +19,8 @@ public class VCP_Main_Frame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private Main_Panel mainPanel;
 	private Order_Panel orderPanel;
+	private Register_Panel registerPanel;
+	private Payment_Frame paymentFrame;
 
 	public VCP_Main_Frame() {
 		super();
@@ -23,9 +28,17 @@ public class VCP_Main_Frame extends JFrame {
 	}
 
 	private void initialize() {
+		try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+        	JOptionPane.showMessageDialog(this,"setLookAndFeel error: " + e.getMessage() , "setLookAndFeel ERRORE", JOptionPane.ERROR_MESSAGE);
+        }
 		this.setContentPane(getMainPanel());
 		getContentPane().setBackground(SystemColor.activeCaption);
 		this.setSize(800, 600);
+		this.setResizable(false);
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
 		listners();
 
 	}
@@ -35,7 +48,7 @@ public class VCP_Main_Frame extends JFrame {
 		getMainPanel().getBtnExit().addActionListener(new ActionListener() {/*Exit Button Listener*/
 			public void actionPerformed(ActionEvent arg0) {
 				JFrame frame = new JFrame();
-
+				
 				int result = JOptionPane.showConfirmDialog(frame,
 						"Are you sure you want to exit the application?",
 						"Exit Application", JOptionPane.YES_NO_OPTION);
@@ -59,6 +72,35 @@ public class VCP_Main_Frame extends JFrame {
 				setContentPane(getMainPanel());
 			}
 		});
+		
+		mainPanel.getBtnRegister().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setContentPane(getRegisterPanel());
+			}
+		});
+		
+		getRegisterPanel().getBtnReturn().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				setContentPane(getMainPanel());
+			}
+		});
+		
+		getRegisterPanel().getBtnSubmit().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getPaymentFrame();
+				getPaymentFrame().setVisible(true);
+				disableMainFrame();
+			}
+		});
+		
+		getPaymentFrame().getBtnReturn().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getPaymentFrame().dispose();
+				enableMainFrame();
+			}
+		});
+		
+		
 	}
 
 	private void closeMainFrame() {
@@ -69,6 +111,7 @@ public class VCP_Main_Frame extends JFrame {
 	public Main_Panel getMainPanel() {
 		if (mainPanel == null) {
 			mainPanel = new Main_Panel();
+			
 		}
 		return mainPanel;
 	}
@@ -79,5 +122,33 @@ public class VCP_Main_Frame extends JFrame {
 			orderPanel = new Order_Panel();
 		}
 		return orderPanel;
+	}
+	
+	public Register_Panel getRegisterPanel() {
+		if(registerPanel == null)
+		{
+			registerPanel = new Register_Panel();
+		}
+		return registerPanel;
+	}
+
+	public Payment_Frame getPaymentFrame() {
+		if(paymentFrame == null)
+		{
+			paymentFrame = new Payment_Frame();
+		}
+		return paymentFrame;
+	}
+	
+	protected void disableMainFrame() {
+		this.setEnabled(false);
+		this.setFocusable(false);
+		this.setVisible(false);
+	}
+	
+	protected void enableMainFrame() {
+		this.setEnabled(true);
+		this.setFocusable(true);
+		this.setVisible(true);
 	}
 }

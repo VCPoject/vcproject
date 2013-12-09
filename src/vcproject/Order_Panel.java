@@ -38,7 +38,7 @@ public class Order_Panel extends JPanel {
 	private JRadioButton rdbtnOneTimeClient;
 	private JRadioButton rdbtnTempClient;
 	private JPanel panelDetails;
-	private JComboBox comboBox;
+	private JComboBox<String> comboBox;
 	private JLabel lblTimeOfDeparture;
 	private JLabel lblParkingLot;
 	private JLabel lblMakeOrder;
@@ -170,7 +170,7 @@ public class Order_Panel extends JPanel {
 		lblParkingLot.setBounds(6, 186, 197, 22);
 		panelDetails.add(lblParkingLot);
 		
-		comboBox = new JComboBox();
+		comboBox = new JComboBox<String>();
 		comboBox.setBounds(213, 188, 137, 24);
 		panelDetails.add(comboBox);
 		
