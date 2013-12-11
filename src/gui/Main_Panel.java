@@ -1,4 +1,4 @@
-package vcproject;
+package gui;
 
 import javax.swing.JPanel;
 import java.awt.SystemColor;
