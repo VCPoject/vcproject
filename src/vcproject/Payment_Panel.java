@@ -174,25 +174,21 @@ public class Payment_Panel extends JPanel {
 			textFieldTotalPaymentCash.setVisible(false);
 		if (lblTotalPaymentCash.isVisible() && lblTotalPaymentCash != null)
 			lblTotalPaymentCash.setVisible(false);
-		lblFullName.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblFullName.setBounds(15, 120, 95, 22);
 		add(lblFullName);
 		lblFullName.repaint();
 		lblFullName.setVisible(true);
 
-		lblIdNumber.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblIdNumber.setBounds(15, 153, 106, 22);
 		add(lblIdNumber);
 		lblIdNumber.repaint();
 		lblIdNumber.setVisible(true);
 
-		lblCardNumber.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblCardNumber.setBounds(15, 186, 125, 22);
 		add(lblCardNumber);
 		lblCardNumber.repaint();
 		lblCardNumber.setVisible(true);
 
-		lblCardExpiration.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblCardExpiration.setBounds(15, 219, 146, 22);
 		add(lblCardExpiration);
 		lblCardExpiration.repaint();
@@ -230,11 +226,14 @@ public class Payment_Panel extends JPanel {
 
 		add(textFieldTotalPayment);
 		textFieldTotalPayment.setColumns(10);
+		textFieldTotalPayment.repaint();
+		textFieldTotalPayment.setVisible(true);
 		
 		lblTotalPayment.setBounds(15, 252, 136, 22);
 		add(lblTotalPayment);
-		textFieldTotalPayment.repaint();
-		textFieldTotalPayment.setVisible(true);
+		lblTotalPayment.repaint();
+		lblTotalPayment.setVisible(true);
+		
 
 	}
 
