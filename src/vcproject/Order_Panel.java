@@ -21,6 +21,8 @@ import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.text.ParseException;
+import javax.swing.SwingConstants;
+import com.toedter.calendar.JDateChooser;
 
 public class Order_Panel extends JPanel {
 
@@ -33,7 +35,8 @@ public class Order_Panel extends JPanel {
 	private JFormattedTextField textFieldCarNumber;
 	private JTextField textFieldEmail;
 	private JFormattedTextField textFieldDeparturTime;
-	private JTextField textFieldArrivalTime;
+	private JFormattedTextField textFieldArrivalTime;
+	private JFormattedTextField textFieldArrivalTime_1;
 	private JPanel panelSelction;
 	private JRadioButton rdbtnOneTimeClient;
 	private JRadioButton rdbtnTempClient;
@@ -49,6 +52,8 @@ public class Order_Panel extends JPanel {
 	private JButton btnSubmit;
 	private JLabel lblTimeOfArrival;
 	private JButton btnReturn;
+	private JLabel lblArrivalDay;
+	private JDateChooser dateChooser;
 
 	public Order_Panel() {
 		super();
@@ -133,12 +138,12 @@ public class Order_Panel extends JPanel {
 		textFieldCarNumber.setColumns(10);
 		
 		textFieldEmail = new JTextField();
-		textFieldEmail.setBounds(213, 83, 137, 24);
+		textFieldEmail.setBounds(213, 82, 137, 24);
 		panelDetails.add(textFieldEmail);
 		textFieldEmail.setColumns(10);
 
 		lblEmail = new JLabel("Email:");
-		lblEmail.setBounds(6, 83, 197, 22);
+		lblEmail.setBounds(6, 82, 197, 22);
 		panelDetails.add(lblEmail);
 		lblEmail.setFont(new Font("Tahoma", Font.BOLD, 18));
 		
@@ -147,42 +152,62 @@ public class Order_Panel extends JPanel {
 		panelDetails.add(btnSubmit);
 		
 		lblTimeOfDeparture = new JLabel("Time of departure:");
-		lblTimeOfDeparture.setBounds(6, 117, 197, 22);
 		panelDetails.add(lblTimeOfDeparture);
 		lblTimeOfDeparture.setFont(new Font("Tahoma", Font.BOLD, 18));
 		
 		try {
 			MaskFormatter formatterDeparturTime = new MaskFormatter("##:##");
-			formatterDeparturTime.setValidCharacters("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
+			formatterDeparturTime.setValidCharacters("0123456789");
 			textFieldDeparturTime = new JFormattedTextField(formatterDeparturTime);
-			textFieldDeparturTime.setText("Hh:Mm  ");
+			textFieldDeparturTime.setHorizontalAlignment(SwingConstants.CENTER);
+			textFieldDeparturTime.setText("Hh:Mm");
 		} catch (ParseException e) {
 			JOptionPane.showMessageDialog(this,"Formatter error: " + e.getMessage() , "Formatter ERRORE", JOptionPane.ERROR_MESSAGE);
 			e.printStackTrace();
 		}
-		textFieldDeparturTime.setBounds(213, 117, 210, 24);
 		panelDetails.add(textFieldDeparturTime);
 		textFieldDeparturTime.setColumns(10);
 
 
 		lblParkingLot = new JLabel("Parking lot:");
 		lblParkingLot.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblParkingLot.setBounds(6, 186, 197, 22);
+		lblParkingLot.setBounds(6, 148, 197, 22);
 		panelDetails.add(lblParkingLot);
+		lblParkingLot.setVisible(false);
 		
 		comboBox = new JComboBox<String>();
-		comboBox.setBounds(213, 188, 137, 24);
+		comboBox.setBounds(213, 148, 137, 24);
 		panelDetails.add(comboBox);
 		
-		lblTimeOfArrival = new JLabel("Time of arrival");
+		lblTimeOfArrival = new JLabel("Time of arrival:");
 		lblTimeOfArrival.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblTimeOfArrival.setBounds(6, 153, 197, 22);
 		panelDetails.add(lblTimeOfArrival);
+		lblTimeOfArrival.setVisible(false);
 
-		textFieldArrivalTime = new JTextField();
-		textFieldArrivalTime.setBounds(213, 152, 210, 20);
-		panelDetails.add(textFieldArrivalTime);
-		textFieldArrivalTime.setColumns(10);
+		textFieldArrivalTime = new JFormattedTextField();
+		try {
+			MaskFormatter formatterDeparturTime = new MaskFormatter("##:##");
+			formatterDeparturTime.setValidCharacters("0123456789");
+			textFieldArrivalTime_1 = new JFormattedTextField(formatterDeparturTime);
+			textFieldArrivalTime_1.setHorizontalAlignment(SwingConstants.CENTER);
+			textFieldArrivalTime_1.setText("Hh:Mm");
+		} catch (ParseException e) {
+			JOptionPane.showMessageDialog(this,"Formatter error: " + e.getMessage() , "Formatter ERRORE", JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
+		}
+		
+		panelDetails.add(textFieldArrivalTime_1);
+		textFieldArrivalTime_1.setColumns(10);
+		
+		lblArrivalDay = new JLabel("Arrival day");
+		lblArrivalDay.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblArrivalDay.setBounds(6, 115, 96, 22);
+		panelDetails.add(lblArrivalDay);
+		
+		dateChooser = new JDateChooser();
+		dateChooser.setBounds(213, 115, 137, 24);
+		panelDetails.add(dateChooser);
+		dateChooser.setVisible(false);
 		
 		btnReturn = new JButton("Return");
 		btnReturn.setBounds(10, 519, 93, 35);
@@ -190,26 +215,39 @@ public class Order_Panel extends JPanel {
 	}
 
 	private void oneTime() {
+		dateChooser.setVisible(true);
+		
+		lblArrivalDay.setVisible(true);
+		
+		lblTimeOfArrival.setBounds(6, 214, 197, 22);
 		lblTimeOfArrival.setVisible(true);
-		textFieldArrivalTime.setVisible(true);
+		
+		textFieldArrivalTime_1.setBounds(213, 214, 52, 20);
+		textFieldArrivalTime_1.setVisible(true);
+		
 		lblParkingLot.setVisible(true);
 		comboBox.setVisible(true);
-		lblTimeOfArrival.setBounds(6, 117, 197, 22);
-		textFieldArrivalTime.setBounds(213, 117, 137, 24);
-		lblTimeOfDeparture.setBounds(6, 153, 197, 22);
-		textFieldDeparturTime.setBounds(213, 152, 137, 20);
+		
+		lblTimeOfDeparture.setVisible(false);
+		lblTimeOfDeparture.setVisible(true);
+		lblTimeOfDeparture.setBounds(6, 181, 197, 22);
+		
+		
+		textFieldDeparturTime.setBounds(213, 181, 52, 24);
 		
 	}
 	
 	private void TempClient(){
+		dateChooser.setVisible(false);
+		lblArrivalDay.setVisible(false);
 		lblTimeOfArrival.setVisible(false);
-		textFieldArrivalTime.setVisible(false);
+		textFieldArrivalTime_1.setVisible(false);
 		lblParkingLot.setVisible(false);
 		comboBox.setVisible(false);
 		lblTimeOfArrival.setBounds(6, 153, 197, 22);
-		textFieldArrivalTime.setBounds(213, 152, 137, 20);
-		lblTimeOfDeparture.setBounds(6, 117, 197, 22);
-		textFieldDeparturTime.setBounds(213, 117, 137, 24);
+		textFieldArrivalTime_1.setBounds(213, 152, 52, 24);
+		lblTimeOfDeparture.setBounds(6, 119, 197, 22);
+		textFieldDeparturTime.setBounds(213, 115, 52, 20);
 	}
 	
 	private void listners(){
@@ -240,5 +278,4 @@ public class Order_Panel extends JPanel {
 	public JButton getBtnReturn() {
 		return btnReturn;
 	}
-
 }
