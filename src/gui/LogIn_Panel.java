@@ -1,8 +1,11 @@
 package gui;
 
 import javax.swing.*;
+
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class LogIn_Panel extends JPanel{
 	
@@ -10,15 +13,16 @@ public class LogIn_Panel extends JPanel{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextField txtLogIn;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JButton btnNewButton_1;
-	private JButton button;
+	private JTextField usertxtfieled;
+	private JTextField pswdtxtfield;
+	private JButton btnreturn;
+	private JButton btnsubmmit;
+	
 
 	public LogIn_Panel(){
 		super();
 		initialize();
+		listners();
 	}
 	
 	private void initialize(){
@@ -26,52 +30,78 @@ public class LogIn_Panel extends JPanel{
 		setBackground(Color.LIGHT_GRAY);
 		setLayout(null);
 		
-		JTextArea textArea = new JTextArea("Username");
-		textArea.setFont(new Font("Monospaced", Font.BOLD | Font.ITALIC, 18));
-		textArea.setBackground(Color.LIGHT_GRAY);
-		textArea.setBounds(22, 89, 90, 22);
-		add(textArea);
+		usertxtfieled = new JTextField();
+		usertxtfieled.setBounds(136, 132, 342, 20);
+		add(usertxtfieled);
+		usertxtfieled.setColumns(10);
 		
-		JTextArea txtrPassword = new JTextArea("Password");
-		txtrPassword.setFont(new Font("Monospaced", Font.BOLD | Font.ITALIC, 18));
-		txtrPassword.setBackground(new Color(192, 192, 192));
-		txtrPassword.setBounds(22, 171, 90, 22);
-		add(txtrPassword);
+		 pswdtxtfield = new JTextField();
+		 pswdtxtfield.setBounds(136, 217, 342, 20);
+		 add( pswdtxtfield);
+		 pswdtxtfield.setColumns(10);
 		
-		txtLogIn = new JTextField();
-		txtLogIn.setFont(new Font("Tahoma", Font.PLAIN, 36));
-		txtLogIn.setText("Log In");
-		txtLogIn.setBackground(new Color(192, 192, 192));
-		txtLogIn.setBounds(264, 11, 114, 63);
-		add(txtLogIn);
-		txtLogIn.setColumns(10);
+		btnsubmmit = new JButton("Submmit");
+		btnsubmmit.setBounds(478, 366, 138, 56);
+		add(btnsubmmit);
 		
-		textField = new JTextField();
-		textField.setBounds(136, 96, 342, 20);
-		add(textField);
-		textField.setColumns(10);
+		btnreturn= new JButton("Return");
+		btnreturn.setBounds(32, 366, 138, 56);
+		add(btnreturn);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(136, 178, 342, 20);
-		add(textField_1);
-		textField_1.setColumns(10);
 		
-		//JButton btnNewButton = new JButton("Submmit");
-		//btnNewButton.setBounds(247, 264, 103, 38);
-		//add(btnNewButton);
 		
-		btnNewButton_1 = new JButton("Return");
-		btnNewButton_1.setBounds(10, 519, 93, 35);
-		add(btnNewButton_1);
+		JLabel lblUserName = new JLabel("Username\r\n");
+		lblUserName.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
+		lblUserName.setBounds(22, 123, 104, 33);
+		add(lblUserName);
 		
-		button = new JButton("Submmit");
-		button.setBounds(32, 366, 138, 56);
-		add(button);
+		JLabel lblPassword = new JLabel("Password");
+		lblPassword.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
+		lblPassword.setBounds(22, 216, 94, 17);
+		add(lblPassword);
+		
+		JLabel lblLogIn = new JLabel("Log In");
+		lblLogIn.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 36));
+		lblLogIn.setBounds(323, 39, 138, 46);
+		add(lblLogIn);
 		
 	}
 	
-	private void listners(){
+	public void listners(){
+		
+		/*usertxtfieled.addKeyListener(new KeyAdapter(){
+			public void keyPressed(KeyEvent e){
+		        if (e.getKeyCode() == KeyEvent.VK_ENTER){
+		        	
+		          System.out.println(usertxtfieled.getText());
+		        }
+		      }
+		    });
+		
+		 pswdtxtfield.addKeyListener(new KeyAdapter(){
+			public void keyPressed(KeyEvent e){
+		        if (e.getKeyCode() == KeyEvent.VK_ENTER){
+		          System.out.println(pswdtxtfield.getText());
+		        }
+		      }
+		    });*/
 	
 	}
 	
+	public JButton getBtnSubmit(){
+		return btnsubmmit;
+	}
+	
+	public JButton getBtnReturn(){
+		return btnreturn;
+	}
+	
+	public JTextField getPswdText(){
+		return pswdtxtfield;
+	}
+	
+	public JTextField getUserText(){
+		return usertxtfieled;
+	}
+
 }

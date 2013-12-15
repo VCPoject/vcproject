@@ -10,6 +10,8 @@ import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class VCP_Main_Frame extends JFrame {
 
@@ -46,7 +48,6 @@ public class VCP_Main_Frame extends JFrame {
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
 		listners();
-
 	}
 
 	private void listners() {
@@ -107,7 +108,7 @@ public class VCP_Main_Frame extends JFrame {
 				getPaymentFrame();
 				getPaymentFrame().setVisible(true);
 				disableMainFrame();
-			}
+		}
 		});
 		
 		getPaymentFrame().getBtnReturn().addActionListener(new ActionListener() {
@@ -117,14 +118,43 @@ public class VCP_Main_Frame extends JFrame {
 			}
 		});
 		
+		getLogIn_Panel().getBtnReturn().addActionListener(new ActionListener(){
+			
+			public void actionPerformed(ActionEvent e) {
+				setContentPane(getMainPanel());
+				
+			}
+			
+		});
 		
+		getLogIn_Panel().getBtnSubmit().addActionListener(new ActionListener(){
 
-
-
-
-
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				 
+				
+				System.out.println(getLogIn_Panel().getPswdText().getText());
+				 System.out.println(getLogIn_Panel().getUserText().getText());
+			}
+			
+		});
+		
+		getLogIn_Panel().getPswdText().addKeyListener(new KeyAdapter(){
+			public void keyPressed(KeyEvent e){
+		        if (e.getKeyCode() == KeyEvent.VK_ENTER)
+		        	getLogIn_Panel().getBtnSubmit().doClick();
+		        
+		     }
+		 });
+		
+		getLogIn_Panel().getUserText().addKeyListener(new KeyAdapter(){
+			public void keyPressed(KeyEvent e){
+		        if (e.getKeyCode() == KeyEvent.VK_ENTER)
+		        	getLogIn_Panel().getBtnSubmit().doClick();
+		    }
+		 });
 	}
-
+	
 	private void closeMainFrame() {
 		this.setVisible(false);
 		this.dispose();
