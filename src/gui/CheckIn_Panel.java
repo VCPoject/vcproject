@@ -1,18 +1,16 @@
 package gui;
 
 import java.awt.SystemColor;
-
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-
 import java.awt.Font;
 import java.text.ParseException;
-
 import javax.swing.JFormattedTextField;
 import javax.swing.text.MaskFormatter;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import javax.swing.JTextField;
 
 public class CheckIn_Panel extends JPanel {
 	/**
@@ -20,7 +18,9 @@ public class CheckIn_Panel extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JFormattedTextField textFieldCarNumber;
-
+	private JButton btnReturn;
+	private JTextField textField;
+	
 	public CheckIn_Panel() {
 		super();
 		initialize();
@@ -59,14 +59,30 @@ public class CheckIn_Panel extends JPanel {
 		btnCheckin.setBounds(187, 195, 89, 23);
 		add(btnCheckin);
 		
-		JButton btnReturn = new JButton("Return");
+		btnReturn = new JButton("Return");
 		btnReturn.setBounds(10, 294, 95, 35);
 		add(btnReturn);
+		
+		JLabel lblMemberId = new JLabel("Member ID:");
+		lblMemberId.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblMemberId.setBounds(126, 135, 109, 22);
+		add(lblMemberId);
+		
+		textField = new JTextField();
+		textField.setEditable(false);
+		textField.setFont(new Font("Tahoma", Font.BOLD, 11));
+		textField.setBounds(272, 137, 73, 20);
+		add(textField);
+		textField.setColumns(10);
 		
 	}
 
 	private void initialize() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public JButton getBtnReturn() {
+		return btnReturn;
 	}
 }

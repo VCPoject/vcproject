@@ -20,15 +20,11 @@ public class VCP_Main_Frame extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Main_Panel mainPanel;
-
 	private LogIn_Panel loginpanel;
-
 	private Order_Panel orderPanel;
 	private Register_Panel registerPanel;
 	private Payment_Frame paymentFrame;
-
-
-
+	private CheckIn_Frame CheckInFrame;
 
 	public VCP_Main_Frame() {
 		super();
@@ -153,6 +149,21 @@ public class VCP_Main_Frame extends JFrame {
 		        	getLogIn_Panel().getBtnSubmit().doClick();
 		    }
 		 });
+		
+		mainPanel.getBtnCheckIn().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				getCheckInFrame();
+				getCheckInFrame().setVisible(true);
+				disableMainFrame();
+			}
+		});
+		
+		getCheckInFrame().getBtnReturn().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getCheckInFrame().dispose();
+				enableMainFrame();
+			}
+		});
 	}
 	
 	private void closeMainFrame() {
@@ -164,7 +175,6 @@ public class VCP_Main_Frame extends JFrame {
 		
 		if (mainPanel == null) {
 			mainPanel = new Main_Panel();
-			
 		}
 		return mainPanel;
 	}
@@ -204,6 +214,12 @@ public class VCP_Main_Frame extends JFrame {
 		return paymentFrame;
 	}
 	
+	public CheckIn_Frame getCheckInFrame() {
+		if(CheckInFrame == null)
+			CheckInFrame = new CheckIn_Frame();
+		return CheckInFrame;
+	}
+
 	protected void disableMainFrame() {
 		this.setEnabled(false);
 		this.setFocusable(false);

@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -45,6 +46,10 @@ public class CheckIn_Frame extends JFrame {
 		if (checkInPanel == null)
 			checkInPanel = new CheckIn_Panel();
 		return checkInPanel;
+	}
+	
+	public JButton getBtnReturn() {
+		return getCheckInPanel().getBtnReturn();
 	}
 
 }
