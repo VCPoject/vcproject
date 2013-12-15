@@ -21,8 +21,6 @@ public class Main_Panel extends JPanel {
 	public Main_Panel() {
 		super();
 		setLayout(null);
-		
-		
 		initialize();
 	}
 

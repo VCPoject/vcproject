@@ -35,7 +35,6 @@ public class Payment_Panel extends JPanel {
 	private JRadioButton rdbtnCash;
 	private JTextField textFieldTotalPaymentCash;
 	private JLabel lblTotalPaymentCash;
-	private JLabel lblTotalPayment_1;
 
 	public Payment_Panel() {
 		super();

@@ -4,9 +4,7 @@ import java.awt.SystemColor;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-
 import java.awt.Font;
-
 import javax.swing.JRadioButton;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.MaskFormatter;
@@ -17,7 +15,6 @@ import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.text.ParseException;
@@ -66,7 +63,6 @@ public class Order_Panel extends JPanel {
 		this.setSize(785, 575);
 		setBackground(SystemColor.activeCaption);
 		setLayout(null);
-		
 		lblMakeOrder = new JLabel("Make Order");
 		lblMakeOrder.setFont(new Font("Tahoma", Font.BOLD, 24));
 		lblMakeOrder.setBounds(324, 27, 137, 23);
@@ -112,13 +108,11 @@ public class Order_Panel extends JPanel {
 		panelDetails.add(lblIdNumber);
 		lblIdNumber.setFont(new Font("Tahoma", Font.BOLD, 18));
 
-
 		textFieldIdNumber = new JTextField();
 		textFieldIdNumber.setBounds(213, 16, 137, 24);
 		panelDetails.add(textFieldIdNumber);
 		textFieldIdNumber.setColumns(10);
 
-		
 		lblCarNumber = new JLabel("Car number:");
 		lblCarNumber.setBounds(6, 49, 197, 22);
 		panelDetails.add(lblCarNumber);
