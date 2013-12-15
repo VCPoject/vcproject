@@ -51,7 +51,7 @@ public class VCP_Main_Frame extends JFrame {
 	}
 
 	private void listners() {
-
+		
 		getMainPanel().getBtnExit().addActionListener(new ActionListener() {/*Exit Button Listener*/
 			public void actionPerformed(ActionEvent arg0) {
 				JFrame frame = new JFrame();
@@ -94,14 +94,14 @@ public class VCP_Main_Frame extends JFrame {
 		mainPanel.getBtnRegister().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setContentPane(getRegisterPanel());
+				getRegisterPanel().getBtnReturn().addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						setContentPane(getMainPanel());
+					}
+				});
 			}
 		});
 		
-		getRegisterPanel().getBtnReturn().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				setContentPane(getMainPanel());
-			}
-		});
 		
 		getRegisterPanel().getBtnSubmit().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -27,7 +27,6 @@ public class Register_Panel extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JButton btnReturn;
-
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 	private JTextField txtIdNumber;
@@ -35,6 +34,7 @@ public class Register_Panel extends JPanel {
 	private JButton btnSubmit;
 	private JButton btnAddCar;
 	private JComboBox<String> comboBoxAddCar;
+	private final ButtonGroup buttonGroup_2 = new ButtonGroup();
 
 	public Register_Panel() {
 		super();
@@ -136,7 +136,7 @@ public class Register_Panel extends JPanel {
 		txtIdNumber.setColumns(10);
 
 		btnSubmit = new JButton("Submit");
-		
+
 		btnSubmit.setBounds(462, 385, 89, 23);
 		add(btnSubmit);
 
