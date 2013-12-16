@@ -4,7 +4,6 @@ INDEX VERSION 1.126+C:\Users\OFER\VCPworkspace\.metadata\.plugins\org.eclipse.jd
 4155206848.index
 3065916431.index
 30765161.index
-2219000855.index
 1115467115.index
 1995173708.index
 1498219845.index
@@ -12,8 +11,6 @@ INDEX VERSION 1.126+C:\Users\OFER\VCPworkspace\.metadata\.plugins\org.eclipse.jd
 163172794.index
 4108727661.index
 3133528496.index
-799022119.index
-1512917872.index
 573543369.index
 3974580528.index
 3816421871.index
