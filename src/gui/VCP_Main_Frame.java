@@ -29,6 +29,8 @@ public class VCP_Main_Frame extends JFrame {
 	private Payment_Frame paymentFrame;
 	private CheckInOut_Frame CheckInOutFrame;
 	private CancelOrder_Panel cancelOrder;
+	private Complain_Panel complain;
+	private ComplainFu_Panel complainFu;
 
 	public VCP_Main_Frame() {
 		super();
@@ -195,8 +197,48 @@ public class VCP_Main_Frame extends JFrame {
 				setContentPane(getMainPanel());
 			}
 		});	
+		
+		mainPanel.getBtnComplain().addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
+			setContentPane(getComplainPanel());
+		}
+		});
+		
+		getComplainPanel().getBtnReturn().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setContentPane(getMainPanel());
+			}
+		});
+		
+		mainPanel.getBtnComplainFu().addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
+			setContentPane(getComplainPanelFu());
+		}
+		});
+		
+		getComplainPanelFu().getBtnReturn().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setContentPane(getMainPanel());
+			}
+		});
 	}
 	
+
+	public   Complain_Panel getComplainPanel() {
+		if (complain == null) {
+			complain = new Complain_Panel();
+		}
+		return complain;
+		
+	}
+	
+	public   ComplainFu_Panel getComplainPanelFu() {
+		if (complainFu == null) {
+			complainFu = new ComplainFu_Panel();
+		}
+		return complainFu;
+		
+	}
 
 	private void closeMainFrame() {
 		this.setVisible(false);

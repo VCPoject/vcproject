@@ -1,21 +1,23 @@
 package gui;
 
-import java.awt.SystemColor;
-
-import javax.swing.JButton;
-import javax.swing.JFormattedTextField;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.text.MaskFormatter;
-
 import java.awt.Font;
+import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 
-public class CancelOrder_Panel extends JPanel {
+import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.text.MaskFormatter;
+import javax.swing.JTextArea;
+
+public class Complain_Panel extends JPanel {
+
 	private static final long serialVersionUID = 1L;
 	private JButton btnReturn;
 	private JLabel lblCarNumber ;
@@ -24,19 +26,19 @@ public class CancelOrder_Panel extends JPanel {
 	private JTextField textFieldIdNumber;
 	private JFormattedTextField textFieldCarNumber;
 	private JTextField textField;
-
-	public CancelOrder_Panel() {
+	
+	
+	public Complain_Panel() {
 		super();
 		initialize();
 		listners();
 	}
-	
-	private void initialize() {
+	private void initialize(){
 		setLayout(null);
 		this.setSize(785, 575);
 		 setBackground(SystemColor.activeCaption);
 		 
-		 JLabel lblCancelOrder = new JLabel("Cancel Order");
+		 JLabel lblCancelOrder = new JLabel("Complain");
 		 lblCancelOrder.setFont(new Font("Tahoma", Font.BOLD, 24));
 		 lblCancelOrder.setBounds(316, 11, 153, 29);
 		 add(lblCancelOrder);
@@ -45,7 +47,7 @@ public class CancelOrder_Panel extends JPanel {
 		 btnReturn.setBounds(10, 519, 93, 35);
 		 add(btnReturn);
 		 
-		 lblIdNumber = new JLabel("ID number:");
+		    lblIdNumber = new JLabel("ID number:");
 			lblIdNumber.setBounds(234, 131, 197, 22);
 			lblIdNumber.setFont(new Font("Tahoma", Font.BOLD, 18));
 			add(lblIdNumber);
@@ -74,30 +76,19 @@ public class CancelOrder_Panel extends JPanel {
 			textFieldCarNumber.setColumns(10);
 			
 			btnSubmit = new JButton("Submit");
-			btnSubmit.setBounds(353, 235, 103, 38);
+			btnSubmit.setBounds(366, 386, 103, 38);
 			add(btnSubmit);
 			
-			textField = new JTextField();
-			textField.setBounds(441, 339, 137, 29);
-			add(textField);
-			textField.setColumns(10);
+			JTextArea textArea = new JTextArea();
+			textArea.setBounds(352, 233, 228, 130);
+			add(textArea);
 			
-			JLabel lblAmountOfCredit = new JLabel("Amount of Credit:");
-			lblAmountOfCredit.setFont(new Font("Tahoma", Font.BOLD, 18));
-			lblAmountOfCredit.setBounds(205, 339, 190, 29);
-			add(lblAmountOfCredit);
-			
-			JLabel lblThisAmountOf = new JLabel("The cradit will be add to the user money card");
-			lblThisAmountOf.setFont(new Font("Tahoma", Font.BOLD, 12));
-			lblThisAmountOf.setBounds(238, 379, 292, 15);
-			add(lblThisAmountOf);
-			
-			
-			
-		 
+			JLabel lblComplainDetails = new JLabel("Complain Details:");
+			lblComplainDetails.setFont(new Font("Tahoma", Font.BOLD, 18));
+			lblComplainDetails.setBounds(145, 233, 197, 29);
+			add(lblComplainDetails);
+		
 	}
-	
-
 	
 	private void listners(){
 		
@@ -110,6 +101,7 @@ public class CancelOrder_Panel extends JPanel {
 	public JButton getBtnReturn() {
 		return btnReturn;
 	}
+	
 	public JButton getBtnSubmit() {
 		return btnSubmit;
 	}
