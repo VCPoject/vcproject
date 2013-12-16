@@ -24,7 +24,7 @@ public class VCP_Main_Frame extends JFrame {
 	private Order_Panel orderPanel;
 	private Register_Panel registerPanel;
 	private Payment_Frame paymentFrame;
-	private CheckIn_Frame CheckInFrame;
+	private CheckInOut_Frame CheckInOutFrame;
 
 	public VCP_Main_Frame() {
 		super();
@@ -152,18 +152,35 @@ public class VCP_Main_Frame extends JFrame {
 		
 		mainPanel.getBtnCheckIn().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				getCheckInFrame();
-				getCheckInFrame().setVisible(true);
+				getCheckInFrame(true);
+				getCheckInFrame(true).setVisible(true);
 				disableMainFrame();
+				getCheckInFrame(true).getBtnReturn().addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						getCheckInFrame(true).dispose();
+						enableMainFrame();
+						CheckInOutFrame = null;
+					}
+				});
 			}
 		});
 		
-		getCheckInFrame().getBtnReturn().addActionListener(new ActionListener() {
+		mainPanel.getBtnCheckOut().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				getCheckInFrame().dispose();
-				enableMainFrame();
+				getCheckInFrame(false);
+				getCheckInFrame(false).setVisible(true);
+				disableMainFrame();
+				getCheckInFrame(false).getBtnReturn().addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						getCheckInFrame(false).dispose();
+						enableMainFrame();
+						CheckInOutFrame = null;
+					}
+				});
 			}
 		});
+		
+
 	}
 	
 	private void closeMainFrame() {
@@ -175,6 +192,7 @@ public class VCP_Main_Frame extends JFrame {
 		
 		if (mainPanel == null) {
 			mainPanel = new Main_Panel();
+
 		}
 		return mainPanel;
 	}
@@ -214,10 +232,10 @@ public class VCP_Main_Frame extends JFrame {
 		return paymentFrame;
 	}
 	
-	public CheckIn_Frame getCheckInFrame() {
-		if(CheckInFrame == null)
-			CheckInFrame = new CheckIn_Frame();
-		return CheckInFrame;
+	public CheckInOut_Frame getCheckInFrame(boolean isCheckIn) {
+		if(CheckInOutFrame == null)
+			CheckInOutFrame = new CheckInOut_Frame(isCheckIn);
+		return CheckInOutFrame;
 	}
 
 	protected void disableMainFrame() {
