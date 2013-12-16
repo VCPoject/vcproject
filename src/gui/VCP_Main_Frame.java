@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import controler.LogIn_controller;
+import java.awt.Container;
 
 import java.awt.Dimension;
 import java.awt.SystemColor;
@@ -14,6 +14,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+
+import javax.swing.JButton;
 
 public class VCP_Main_Frame extends JFrame {
 
@@ -27,6 +29,7 @@ public class VCP_Main_Frame extends JFrame {
 	private Register_Panel registerPanel;
 	private Payment_Frame paymentFrame;
 	private CheckInOut_Frame CheckInOutFrame;
+	private CancelOrder_Panel cancelOrder;
 	private LogIn_controller logincontroller;
 
 	public VCP_Main_Frame() {
@@ -188,21 +191,39 @@ public class VCP_Main_Frame extends JFrame {
 			}
 		});
 		
+		mainPanel.getBtnCancelOrder().addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
+			setContentPane(getCancelOrderPanel());
+		}
+		});
 
+		getCancelOrderPanel().getBtnReturn().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setContentPane(getMainPanel());
+			}
+		});	
 	}
 	
+
 	private void closeMainFrame() {
 		this.setVisible(false);
 		this.dispose();
 	}
-
+	
 	public Main_Panel getMainPanel() {
 		
-		if (mainPanel == null) {
-			mainPanel = new Main_Panel();
-
+		if(mainPanel==null)
+			mainPanel=new Main_Panel();
+		
+		return mainPanel; 
+	}
+	
+	public CancelOrder_Panel getCancelOrderPanel() {
+		
+		if (cancelOrder == null) {
+			cancelOrder = new CancelOrder_Panel();
 		}
-		return mainPanel;
+		return cancelOrder;
 	}
 	
 
@@ -258,5 +279,4 @@ public class VCP_Main_Frame extends JFrame {
 		this.setFocusable(true);
 		this.setVisible(true);
 	}
-
 }

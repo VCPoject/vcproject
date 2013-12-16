@@ -17,6 +17,7 @@ public class Main_Panel extends JPanel {
 	private JButton btnRegister;
 	private JButton btnCheckIn;
 	private JButton btnCheckOut;
+	private JButton cancelOrder;
 	
 	public Main_Panel() {
 		super();
@@ -46,7 +47,7 @@ public class Main_Panel extends JPanel {
 		add(btnMakeOrder);
 		
 		btnRegister = new JButton("Register");
-		btnRegister.setBounds(516, 167, 110, 35);
+		btnRegister.setBounds(516, 213, 110, 35);
 		add(btnRegister);
 		
 		btnCheckIn = new JButton("Check in");
@@ -56,6 +57,10 @@ public class Main_Panel extends JPanel {
 		btnCheckOut = new JButton("Check out");
 		btnCheckOut.setBounds(217, 167, 110, 35);
 		add(btnCheckOut);
+		
+		cancelOrder = new JButton("Cancel order");
+		cancelOrder.setBounds(516, 167, 110, 35);
+		add(cancelOrder);
 	}
 
 	public JButton getBtnExit() {
@@ -80,5 +85,8 @@ public class Main_Panel extends JPanel {
 
 	public JButton getBtnCheckOut() {
 		return btnCheckOut;
+	}
+	public JButton getBtnCancelOrder() {
+		return cancelOrder;
 	}
 }
