@@ -9,7 +9,6 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import vcproject.LogIn_Panel;
 
 public class LogIn_Frame extends JFrame{
 
