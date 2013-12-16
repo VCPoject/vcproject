@@ -4,14 +4,9 @@ import javax.swing.*;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 public class LogIn_Panel extends JPanel{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField usertxtfieled;
 	private JTextField pswdtxtfield;
@@ -26,7 +21,7 @@ public class LogIn_Panel extends JPanel{
 	}
 	
 	private void initialize(){
-		this.setSize(785, 575);
+		this.setSize(300, 200);
 		setBackground(Color.LIGHT_GRAY);
 		setLayout(null);
 		
@@ -68,24 +63,6 @@ public class LogIn_Panel extends JPanel{
 	}
 	
 	public void listners(){
-		
-		/*usertxtfieled.addKeyListener(new KeyAdapter(){
-			public void keyPressed(KeyEvent e){
-		        if (e.getKeyCode() == KeyEvent.VK_ENTER){
-		        	
-		          System.out.println(usertxtfieled.getText());
-		        }
-		      }
-		    });
-		
-		 pswdtxtfield.addKeyListener(new KeyAdapter(){
-			public void keyPressed(KeyEvent e){
-		        if (e.getKeyCode() == KeyEvent.VK_ENTER){
-		          System.out.println(pswdtxtfield.getText());
-		        }
-		      }
-		    });*/
-	
 	}
 	
 	public JButton getBtnSubmit(){

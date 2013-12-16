@@ -29,7 +29,7 @@ public class LogIn_Frame extends JFrame{
 					"setLookAndFeel error: " + e.getMessage(),
 					"setLookAndFeel ERRORE", JOptionPane.ERROR_MESSAGE);
 		}
-		this.setSize(500, 400);
+		this.setSize(800, 600);
 		this.setResizable(false);
 		getContentPane().setBackground(SystemColor.activeCaption);
 		getContentPane().setLayout(null);
