@@ -40,7 +40,7 @@ public class ComplainFu_Panel extends JPanel {
 		 add(lblCancelOrder);
 		 
 		 btnReturn = new JButton("Return");
-		 btnReturn.setBounds(10, 519, 93, 35); 
+		 btnReturn.setBounds(10, 519, 93, 35);
 		 add(btnReturn);
 		
 		 lblIdNumber = new JLabel("ID number:");
