@@ -20,15 +20,11 @@ public class VCP_Main_Frame extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Main_Panel mainPanel;
-
 	private LogIn_Panel loginpanel;
-
 	private Order_Panel orderPanel;
 	private Register_Panel registerPanel;
 	private Payment_Frame paymentFrame;
-
-
-
+	private CheckInOut_Frame CheckInOutFrame;
 
 	public VCP_Main_Frame() {
 		super();
@@ -153,6 +149,38 @@ public class VCP_Main_Frame extends JFrame {
 		        	getLogIn_Panel().getBtnSubmit().doClick();
 		    }
 		 });
+		
+		mainPanel.getBtnCheckIn().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				getCheckInFrame(true);
+				getCheckInFrame(true).setVisible(true);
+				disableMainFrame();
+				getCheckInFrame(true).getBtnReturn().addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						getCheckInFrame(true).dispose();
+						enableMainFrame();
+						CheckInOutFrame = null;
+					}
+				});
+			}
+		});
+		
+		mainPanel.getBtnCheckOut().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getCheckInFrame(false);
+				getCheckInFrame(false).setVisible(true);
+				disableMainFrame();
+				getCheckInFrame(false).getBtnReturn().addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						getCheckInFrame(false).dispose();
+						enableMainFrame();
+						CheckInOutFrame = null;
+					}
+				});
+			}
+		});
+		
+
 	}
 	
 	private void closeMainFrame() {
@@ -164,7 +192,7 @@ public class VCP_Main_Frame extends JFrame {
 		
 		if (mainPanel == null) {
 			mainPanel = new Main_Panel();
-			
+
 		}
 		return mainPanel;
 	}
@@ -204,6 +232,12 @@ public class VCP_Main_Frame extends JFrame {
 		return paymentFrame;
 	}
 	
+	public CheckInOut_Frame getCheckInFrame(boolean isCheckIn) {
+		if(CheckInOutFrame == null)
+			CheckInOutFrame = new CheckInOut_Frame(isCheckIn);
+		return CheckInOutFrame;
+	}
+
 	protected void disableMainFrame() {
 		this.setEnabled(false);
 		this.setFocusable(false);

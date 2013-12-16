@@ -9,6 +9,8 @@ import javax.swing.UnsupportedLookAndFeelException;
 import java.awt.Dimension;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Payment_Frame extends JFrame {
 	/**
@@ -19,8 +21,13 @@ public class Payment_Frame extends JFrame {
 
 	public Payment_Frame() {
 		super();
-		
-
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent arg0) {
+				getBtnReturn().doClick();
+			}
+		});
 		initialize();
 	}
 
