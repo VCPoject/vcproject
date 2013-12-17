@@ -4,7 +4,9 @@ import java.awt.SystemColor;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.JRadioButton;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.MaskFormatter;
@@ -15,10 +17,13 @@ import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.text.ParseException;
+
 import javax.swing.SwingConstants;
+
 import com.toedter.calendar.JDateChooser;
 
 public class Order_Panel extends JPanel {
@@ -57,6 +62,7 @@ public class Order_Panel extends JPanel {
 		initialize();
 		TempClient();
 		listners();
+		System.out.println("bla");
 	}
 
 	private void initialize() {

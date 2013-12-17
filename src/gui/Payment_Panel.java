@@ -1,16 +1,22 @@
 package gui;
 
 import javax.swing.JPanel;
+
 import java.awt.SystemColor;
+
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.JRadioButton;
 import javax.swing.border.TitledBorder;
 import javax.swing.UIManager;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.ButtonGroup;
 
 public class Payment_Panel extends JPanel {
@@ -40,6 +46,7 @@ public class Payment_Panel extends JPanel {
 		super();
 		initialize();
 		listners();
+		System.out.println("bla");
 	}
 
 	private void initialize() {

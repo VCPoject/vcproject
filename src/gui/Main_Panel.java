@@ -1,9 +1,12 @@
 package gui;
 
 import javax.swing.JPanel;
+
 import java.awt.SystemColor;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
+
 import java.awt.Font;
 
 public class Main_Panel extends JPanel {
@@ -23,6 +26,7 @@ public class Main_Panel extends JPanel {
 		super();
 		setLayout(null);
 		initialize();
+		System.out.println("bla");
 	}
 
 	private void initialize() {

@@ -1,11 +1,14 @@
 package gui;
 
 import java.awt.SystemColor;
+
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+
 import java.awt.Font;
 import java.text.ParseException;
+
 import javax.swing.JRadioButton;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.MaskFormatter;
@@ -17,7 +20,9 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.SwingConstants;
+
 import com.toedter.calendar.JDateChooser;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -40,6 +45,7 @@ public class Register_Panel extends JPanel {
 		super();
 		initialize();
 		listners();
+		System.out.println("bla");
 	}
 
 	private void initialize() {

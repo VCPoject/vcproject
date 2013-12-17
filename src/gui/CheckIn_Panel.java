@@ -25,6 +25,7 @@ public class CheckIn_Panel extends JPanel {
 		super();
 		initialize();
 		listners();
+		System.out.println("bla");
 	}
 
 	private void listners() {
