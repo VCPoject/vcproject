@@ -45,7 +45,6 @@ public class Register_Panel extends JPanel {
 		super();
 		initialize();
 		listners();
-		System.out.println("bla");
 	}
 
 	private void initialize() {

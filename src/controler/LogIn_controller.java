@@ -11,7 +11,6 @@ public class LogIn_controller   implements Controller{
 	public LogIn_controller(String username,String password){
 		this.username=username;
 		this.password=password;
-		System.out.println("bla");
 	}
 	
 	public void checkValidity(){

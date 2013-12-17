@@ -18,7 +18,6 @@ public class LogIn_Frame extends JFrame{
 	public LogIn_Frame(){
 		super();
 		initialize();
-		System.out.println("bla");
 	}
 	
 	private void initialize() {

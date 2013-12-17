@@ -18,7 +18,6 @@ public class LogIn_Panel extends JPanel{
 		super();
 		initialize();
 		listners();
-		System.out.println("bla");
 	}
 	
 	private void initialize(){

@@ -29,7 +29,6 @@ public class Payment_Frame extends JFrame {
 			}
 		});
 		initialize();
-		System.out.println("bla");
 	}
 
 	private void initialize() {

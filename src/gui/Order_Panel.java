@@ -62,7 +62,6 @@ public class Order_Panel extends JPanel {
 		initialize();
 		TempClient();
 		listners();
-		System.out.println("bla");
 	}
 
 	private void initialize() {

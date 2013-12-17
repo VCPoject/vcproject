@@ -21,7 +21,6 @@ public class CheckInOut_Frame extends JFrame {
 		super();
 		this.isCheckIn = isCheckIn;
 		initialize();
-		System.out.println("bla");
 	}
 
 	private void initialize() {

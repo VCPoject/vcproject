@@ -36,7 +36,6 @@ public class VCP_Main_Frame extends JFrame {
 	public VCP_Main_Frame() {
 		super();
 		initialize();
-		System.out.println("bla");
 	}
 
 	private void initialize() {
